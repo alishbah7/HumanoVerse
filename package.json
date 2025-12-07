@@ -1,5 +1,13 @@
 {
+  "homepage": "https://alishbah7.github.io/HumanoVerse",
   "dependencies": {
     "better-auth": "^1.4.5"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

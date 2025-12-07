@@ -28,7 +28,7 @@ function HomepageHeader() {
             <Link className={styles.readBookBtn} to="/docs/module-1/ros-2-basics">
               Read Book
             </Link>
-            <Link className={styles.signUpBtn} to="/signup">
+            <Link className={styles.signUpBtn} to="/working">
               Sign Up
             </Link>
           </div>

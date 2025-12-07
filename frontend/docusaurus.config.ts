@@ -10,12 +10,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
-  // clientModules: [require.resolve('./src/root.tsx')],
-
-  organizationName: 'your-organization',
-  projectName: 'robotics-textbook',
+  url: 'https://alishbah7.github.io',
+  baseUrl: '/HumanoVerse/',
+  organizationName: 'alishbah7',
+  projectName: 'HumanoVerse',
 
   onBrokenLinks: 'throw',
 
