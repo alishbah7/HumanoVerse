@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **I. Comprehensive and Accurate Content**: Does the plan ensure all content is technically accurate and reviewed by a subject matter expert?
+- **II. Practical, Hands-On Learning**: Does the plan incorporate practical exercises, examples, and interactive elements?
+- **III. User-Centric Design**: Does the design align with the specified UI mockups and include personalization/translation features?
+- **IV. AI-Driven Content Augmentation**: Is there a clear strategy for leveraging AI to enrich content while maintaining quality?
+- **V. Modular and Scalable Architecture**: Does the proposed structure adhere to the modular format (modules/chapters) for easy scalability?
+- **VI. Open and Accessible**: Is the content designed for public, free access, with accessibility and translation in mind?
 
 ## Project Structure
 

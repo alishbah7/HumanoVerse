@@ -1,0 +1,168 @@
+/* NAVBAR — white background + title color */
+.navbar {
+  background: #005045 !important;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar__title {
+  color: white !important;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+/* Book link beside Login */
+.navbar__link {
+  color: white !important;
+}
+/* --- MOBILE NAVBAR (background fix) --- */
+.navbar,
+.navbar--fixed-top {
+  background-color: #005045 !important;
+}
+
+/* Hamburger Menu Button (icon area) */
+.navbar__toggle {
+  background-color: #005045 !important;
+}
+
+/* Hamburger icon lines */
+.navbar__toggle svg {
+  stroke: white !important;
+}
+
+/* MOBILE SIDEBAR (slide-out menu) */
+.navbar-sidebar {
+  background-color: #005045 !important;
+}
+
+/* Sidebar links */
+/* Only mobile sidebar links */
+.navbar-sidebar .menu__list .menu__link {
+  color: white !important;
+}
+.menu__list-item-collapsible > .menu__link {
+  color: #005045 !important;
+  font-weight: 600;
+}
+
+/* Mobile submenu text */
+.navbar-sidebar .menu__list-item {
+  color: white !important;
+}
+.navbar-sidebar__back {
+  color: white !important;
+}
+
+/* Hamburger icon (3 lines) */
+.navbar__toggle svg {
+  stroke: white !important;
+}
+/* Close icon inside mobile sidebar */
+.navbar-sidebar__close svg {
+  stroke: white !important;
+}
+
+
+/* The arrow icon */
+.navbar-sidebar__back svg {
+  stroke: white !important;
+}
+/* Old caret class */
+.menu__caret svg {
+  stroke: white !important;
+}
+
+/* New caret class (Docusaurus v2.4+ / v3 / v4) */
+.menu__link--sublist-caret svg {
+  stroke: white !important;
+}
+
+/* Ensure caret container doesn't affect color */
+.menu__caret,
+.menu__link--sublist-caret {
+  color: white !important;
+}
+/* --- FORCE ALL NAVBAR & SIDEBAR ICONS TO WHITE --- */
+
+/* Hamburger + Close + Carets + All SVG icons inside navbar/sidebar */
+.navbar svg,
+.navbar svg path,
+.navbar svg line,
+.navbar svg polygon,
+.navbar svg polyline,
+.navbar-sidebar svg,
+.navbar-sidebar svg path,
+.navbar-sidebar svg line,
+.navbar-sidebar svg polygon,
+.navbar-sidebar svg polyline {
+  stroke: white !important;
+  fill: white !important;
+}
+
+/* Signup button inside mobile sidebar */
+
+/* SIGNUP BUTTON */
+.signup-button {
+  background-color: white !important;
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: #005045 !important;
+  font-weight: 600;
+  text-align: center;
+  width: 100px;
+}
+.navbar-sidebar .signup-button {
+  color: #005045 !important;
+  background: white !important;
+}
+
+/* FOOTER CUSTOM LAYOUT */
+.footer {
+  background: #ffffff !important;
+  padding: 30px 10px;
+}
+
+.footer-custom {
+  text-align: center;
+}
+
+.footer-title {
+  color: #005045;
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+/* SOCIAL ICONS (circular, green bg, white text) */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-icon {
+  background: #005045;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: #005045;
+  font-weight: 600;
+  text-decoration: none;
+}

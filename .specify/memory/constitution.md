@@ -1,55 +1,53 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 → 1.0.0
+- List of modified principles: None (initial creation)
+- Added sections: Core Principles, Course Focus, Development Workflow, Governance
+- Removed sections: None
+- Templates requiring updates:
+  - ✅ .specify/templates/plan-template.md
+  - ✅ .specify/templates/spec-template.md
+  - ✅ .specify/templates/tasks-template.md
+- Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Textbook Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Comprehensive and Accurate Content
+All content must be technically accurate, up-to-date, and cover the specified topics in depth. All generated content must be reviewed and verified by a subject matter expert before publication.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Practical, Hands-On Learning
+The textbook must prioritize practical application. Every chapter should include practical exercises, real-world examples, and interactive diagrams where applicable to reinforce learning.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. User-Centric Design and Personalization
+The user interface and experience are paramount. The platform must be intuitive, visually appealing (matching the UI mockups provided in the `UI/` directory), and offer features for personalization (based on user background) and translation (initially to Urdu).
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. AI-Driven Content Augmentation
+Leverage AI (e.g., context7) to enrich the textbook's content, ensuring it remains dynamic and engaging. AI-generated content must be clearly marked and adhere to the same accuracy standards as human-written content.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Modular and Scalable Architecture
+The Docusaurus-based platform must be built with a modular structure, initially consisting of 4 main modules, each containing 4-6 chapters. This architecture must facilitate easy updates, content additions, and future expansion.
 
-### [PRINCIPLE_6_NAME]
+### VI. Open and Accessible
+The textbook will be publicly and freely accessible online. The content should be written to be understandable to a broad audience, and features like translation are intended to maximize this reach.
 
+## Course Focus
 
-[PRINCIPLE__DESCRIPTION]
+The project's primary focus is on "Physical AI & Humanoid Robotics," with specific emphasis on the following technologies and concepts:
+- Embodied Intelligence
+- ROS 2 (Robot Operating System 2)
+- Gazebo Simulation
+- Unity Engine for Robotics
+- NVIDIA Isaac Sim
+- Vision-Language-Action (VLA) Models
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Development will follow a feature-driven approach. New content, features, or architectural changes will be developed in separate branches, reviewed via pull requests, and merged into the main branch only after passing all automated checks and manual reviews.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution is the foundational document for the project. All development practices, content contributions, and architectural decisions must align with these principles. Amendments to this constitution require a documented proposal, a review period, and majority approval from the core project maintainers.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-07
