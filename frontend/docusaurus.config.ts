@@ -11,7 +11,7 @@ const config: Config = {
   },
 
   url: 'https://alishbah7.github.io',
-  baseUrl: '/HumanoVerse/',
+  baseUrl: '/',
   organizationName: 'alishbah7',
   projectName: 'HumanoVerse',
 
