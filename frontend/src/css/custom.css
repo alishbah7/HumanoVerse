@@ -166,3 +166,6 @@
   font-weight: 600;
   text-decoration: none;
 }
+.navbar .navbar__link.signup-button {
+  color: #005045 !important;
+}
