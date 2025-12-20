@@ -22,10 +22,10 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ur'],
-  },
+    // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'ur'],
+  // },
 
   presets: [
     [
@@ -64,10 +64,10 @@ const config: Config = {
           type: 'custom-AuthNavbarItem',
           position: 'right',
         },
-        {
-          type: 'custom-UrduTranslateButton',
-          position: 'right',
-        },
+        // {
+        //   type: 'custom-UrduTranslateButton',
+        //   position: 'right',
+        // },
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'tutorialSidebar',
