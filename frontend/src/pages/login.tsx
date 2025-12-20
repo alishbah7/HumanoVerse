@@ -33,7 +33,7 @@ function Login() {
       });
 
       // 🔥 fetch real user (with role)
-            const res = await fetch('/api/me', {
+            const res = await fetch('https://humanoverse.vercel.app/api/me', {
         credentials: 'include',
       });
 
