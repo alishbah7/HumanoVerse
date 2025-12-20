@@ -30,6 +30,7 @@ async function setup() {
         email: adminEmail,
         password: adminPassword,
         name: 'Admin',
+        role: 'admin',
       },
     });
 
