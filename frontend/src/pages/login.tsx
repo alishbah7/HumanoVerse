@@ -26,7 +26,7 @@ function Login() {
       }
 
       // 🔥 fetch real user (with role)
-      const res = await fetch('http://localhost:3001/api/me', {
+      const res = await fetch('https://api-humanoverse.up.railway.app/api/me', {
         credentials: 'include',
       });
 

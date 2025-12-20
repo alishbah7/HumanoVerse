@@ -15,7 +15,7 @@ const UrduTranslateButton = () => {
       if (contentElement) {
         const originalContent = contentElement.innerHTML;
         try {
-          const response = await fetch('http://localhost:3001/api/translate', {
+          const response = await fetch('https://api-humanoverse.up.railway.app/api/translate', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
