@@ -35,7 +35,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('https://api-humanoverse.up.railway.app/api/admin/users', {
+      const response = await fetch('https://humanoverse.vercel.app/api/admin/users', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -64,7 +64,7 @@ const AdminDashboard: React.FC = () => {
     setSuccess(null);
 
     try {
-      const response = await fetch(`https://api-humanoverse.up.railway.app/api/admin/users/${userId}`, {
+      const response = await fetch(`https://humanoverse.vercel.app/api/admin/users/${userId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
