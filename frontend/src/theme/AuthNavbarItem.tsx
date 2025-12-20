@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSession, signOut } from '../lib/auth-client';
+import { useSession, signOut, authClient } from '../lib/auth-client';
 import Link from '@docusaurus/Link';
 import '../css/navbar.css';
 
@@ -28,7 +28,17 @@ function AuthNavbarItem() {
           </Link>
 
         )}
-        <button onClick={() => signOut()} className="navbar-logout-button">
+        <button
+          onClick={async () => {
+            await signOut();
+            await authClient.getSession({
+              query: {
+                disableCookieCache: true,
+              },
+            });
+          }}
+          className="navbar-logout-button"
+        >
           Logout
         </button>
       </div>

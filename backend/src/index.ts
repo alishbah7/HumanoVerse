@@ -34,10 +34,7 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 const app = express();
 app.use(
   cors({
-    origin: [
-      'http://localhost:3000',
-      /https:\/\/humanoverse(-[a-zA-Z0-9-]+)?\.vercel\.app/,
-    ],
+    origin: 'http://localhost:3000',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
   })

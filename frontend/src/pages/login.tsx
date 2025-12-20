@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { signIn, useSession } from '../lib/auth-client';
+import { signIn, useSession, authClient } from '../lib/auth-client';
 import { useHistory } from '@docusaurus/router';
 import '../css/auth.css';
 
@@ -20,10 +20,17 @@ function Login() {
     try {
       const result = await signIn.email({ email, password });
 
+      
       if (result?.error) {
         setError(result.error.message || 'Login failed');
         return;
       }
+      
+      await authClient.getSession({
+        query: {
+          disableCookieCache: true,
+        },
+      });
 
       // 🔥 fetch real user (with role)
       const res = await fetch('https://api-humanoverse.up.railway.app/api/me', {

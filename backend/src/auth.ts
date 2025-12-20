@@ -13,7 +13,7 @@ const db = new Database('./db.sqlite');
 export const auth = betterAuth({
   database: db,
 
-  trustedOrigins: ['http://localhost:3000', '/https:\/\/humanoverse(-[a-zA-Z0-9-]+)?\.vercel\.app/'],
+  trustedOrigins: ['http://localhost:3000', 'https://humanoverse.vercel.app'],
 
   server: {
     origin: ['http://localhost:3000', 'https://humanoverse.vercel.app'],
