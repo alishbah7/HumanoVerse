@@ -3,12 +3,14 @@ import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import { useSession } from '../lib/auth-client';
 // import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const { data: session } = useSession();
 
   return (
     <header className={styles.heroSection}>
@@ -25,12 +27,14 @@ function HomepageHeader() {
           <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
 
           <div className={styles.heroButtons}>
-            <Link className={styles.readBookBtn} to="/docs/module-1/ros-2-basics">
+            <Link className={styles.readBookBtn} to="/docs/introduction">
               Read Book
             </Link>
-            <Link className={styles.signUpBtn} to="/working">
-              Sign Up
-            </Link>
+            {!session?.user && (
+              <Link className={styles.signUpBtn} to="/signup">
+                Sign Up
+              </Link>
+            )}
           </div>
         </div>
 
@@ -46,28 +50,28 @@ function HomepageModules() {
       title: 'Module 1: ROS 2 Basics',
       icon: '📘',
       description: 'Introduction to ROS 2, nodes, topics, and services.',
-      link: '/docs/module-1/ros-2-basics',
+      link: '/docs/module-1/introduction-to-ros',
       count: 'Read Now',
     },
     {
       title: 'Module 2: Simulation',
       icon: '🖥️',
       description: 'Exploring Gazebo physics, Unity environment, and sensors.',
-      link: '/docs/module-2/gazebo-physics',
+      link: '/docs/module-2/sdf-vs-urdf',
       count: 'Read Now',
     },
     {
       title: 'Module 3: NVIDIA Isaac',
       icon: '🤖',
       description: 'Deep dive into NVIDIA Isaac Sim, Isaac ROS, and Nav2.',
-      link: '/docs/module-3/nvidia-isaac-sim',
+      link: '/docs/module-3/ros-navigation-stack',
       count: 'Read Now',
     },
     {
       title: 'Module 4: Advanced Topics',
       icon: '🧠',
       description: 'Voice-to-Action, Cognitive Planning, and Capstone Project.',
-      link: '/docs/module-4/voice-to-action',
+      link: '/docs/module-4/reinforcement-learning-in-robotics',
       count: 'Read Now',
     },
   ];

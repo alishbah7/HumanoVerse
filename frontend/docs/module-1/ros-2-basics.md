@@ -2,6 +2,10 @@
 title: ROS 2 Basics
 ---
 
+import ChapterControls from '@site/src/components/ChapterControls';
+
+<ChapterControls />
+
 ## Introduction to ROS 2
 
 The Robot Operating System (ROS) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms. ROS 2 is the latest iteration, designed with improved real-time performance, security, and multi-robot system support.

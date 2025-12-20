@@ -15,6 +15,11 @@ const config: Config = {
   organizationName: 'alishbah7',
   projectName: 'HumanoVerse',
 
+
+  stylesheets: [
+    'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css',
+  ],
+
   onBrokenLinks: 'throw',
 
   i18n: {
@@ -56,17 +61,20 @@ const config: Config = {
       title: '𝐻𝓊𝓂𝒶𝓃𝑜𝒱𝑒𝓇𝓈𝑒',
       items: [
         {
-          to: './working',
-          label: 'Login',
+          type: 'custom-AuthNavbarItem',
           position: 'right',
-          className: 'signup-button',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'custom-UrduTranslateButton',
           position: 'right',
-          label: 'Book',
         },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'tutorialSidebar',
+        //   position: 'right',
+        //   label: 'Book',
+        //   className: 'navbar-book-link',
+        // },
       ],
     },
 
@@ -79,10 +87,18 @@ const config: Config = {
           <h2 class="footer-title">𝐻𝓊𝓂𝒶𝓃𝑜𝒱𝑒𝓇𝓈𝑒</h2>
 
           <div class="footer-social">
-            <a class="social-icon">IG</a>
-            <a class="social-icon">FB</a>
-            <a class="social-icon">LN</a>
-            <a class="social-icon">X</a>
+            <a class="social-icon" href="#" aria-label="Instagram">
+              <i class="bx bxl-instagram"></i>
+            </a>
+            <a class="social-icon" href="#" aria-label="Facebook">
+              <i class="bx bxl-facebook"></i>
+            </a>
+            <a class="social-icon" href="#" aria-label="LinkedIn">
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a class="social-icon" href="#" aria-label="X (formerly Twitter)">
+              <i class="bx bxl-twitter"></i>
+            </a>
           </div>
 
           <div class="footer-links">

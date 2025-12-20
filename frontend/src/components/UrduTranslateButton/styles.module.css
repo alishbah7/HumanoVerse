@@ -1,0 +1,14 @@
+.navbarUrduButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 80px;
+  border-radius: 4px;
+  height: 35px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}

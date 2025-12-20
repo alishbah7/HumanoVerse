@@ -104,7 +104,7 @@
 /* SIGNUP BUTTON */
 .signup-button {
   background-color: white !important;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 6px 14px;
   color: #005045 !important;
   font-weight: 600;
@@ -149,9 +149,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+}
+
+.social-icon i {
+  font-size: 1.5rem; /* Adjust icon size */
+  line-height: 1; /* Ensures icon is centered vertically */
 }
 
 /* Footer links */
@@ -166,6 +170,152 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+/* Responsive adjustments for footer links */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Adjust gap for stacked items */
+  }
+}
 .navbar .navbar__link.signup-button {
   color: #005045 !important;
+}
+
+/* Custom active link colors */
+.menu__link--active {
+  color: #005045 !important;
+}
+
+.table-of-contents__link--active {
+  color: #005045 !important;
+}
+
+/* Right sidebar (Table of Contents) link hover color */
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #005045;
+}
+
+/* Next/Previous chapter button text color */
+.pagination-nav__link {
+  color: #005045;
+   border: 1px solid #005045;
+}
+
+/* Next/Previous chapter button hover color */
+.pagination-nav__link:hover {
+  color: #005045;
+  border-color: #005045; /* Usually there's a border that should also change color */
+}
+.pagination-nav__sublabel {
+    color: #005045;
+}
+.pagination-nav__label {
+    color: #005045;
+}
+
+/* Ensure custom AuthNavbarItem content stacks in mobile sidebar */
+.navbar-sidebar .navbar-auth-section {
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Take full width */
+}
+
+.navbar-sidebar .navbar-auth-section .navbar-login-link,
+.navbar-sidebar .navbar-auth-section .navbar-signup-link {
+  width: 100%; /* Make links take full width in sidebar */
+  text-align: left; /* Align text to left */
+  margin-bottom: 0.5rem; /* Add some spacing between them */
+  margin-right: 0; /* Remove right margin */
+}
+
+/* Adjust AuthNavbarItem buttons for sidebar if they appear there */
+.navbar-sidebar .navbar-auth-section .navbar-logout-button,
+.navbar-sidebar .navbar-auth-section .navbar-account-link {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    text-align: left;
+}
+@media (max-width: 996px) {
+    /* Ensure the sidebar itself is a flex container */
+    .navbar-sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Push content to top and bottom */
+        height: 100%; /* Ensure it takes full height */
+    }
+
+    /* Ensure the menu list (top part of sidebar) takes available space */
+    .navbar-sidebar .menu {
+        flex-grow: 1; /* Allow menu to take all available space */
+        display: flex; /* Make it a flex container to allow its children to grow/shrink */
+        flex-direction: column; /* Stack its content */
+    }
+
+    /* Push the auth section to the bottom by making it margin-top: auto */
+    .navbar-sidebar .navbar-auth-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        padding: 1rem 0; /* Add some padding around the block */
+        width: 100%;
+        margin-top: auto; /* This should now work to push it to the bottom */
+        margin-bottom: 1rem; /* Space from bottom */
+    }
+
+    .navbar-sidebar .navbar-username {
+        display: block; /* Ensure it takes full width */
+        text-align: center; /* Center the text */
+        margin-bottom: 1rem; /* Space below username */
+        margin-right: 0; /* Remove horizontal margin */
+        color: white; /* Ensure text color is white in sidebar */
+        font-weight: bold; /* Make username stand out */
+        font-size: 1.1rem;
+    }
+
+    .navbar-sidebar .navbar-account-link,
+    .navbar-sidebar .navbar-logout-button {
+        display: block; /* Ensure they take full width */
+        width: 80%; /* Adjust width for centering and spacing */
+        margin: 0.5rem auto; /* Center buttons with vertical margin */
+        text-align: center !important; /* Ensure button text is centered */
+        /* Inherit or re-apply styles for background, color, border-radius etc. */
+        background-color: white !important; /* Ensure white background */
+        color: #005045 !important; /* Ensure text color */
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 5px 10px !important;
+        cursor: pointer !important;
+        font-weight: 600 !important;
+    }
+}
+
+.navbar__items--right .navbar-urdu-button {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  margin-right: 10px !important;
+}
+
+.navbar__items--right .navbar-urdu-icon {
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  fill: white !important;
+}
+@media screen and (max-width: 400px) {
+  .navbar__title {
+      font-size: 20px; /* adjust as you like */
+      margin-left: -5px !important;
+    }
+  .navbar__toggle svg {
+    height: 20px;
+  }
 }
