@@ -1,0 +1,92 @@
+.navbar-auth-section {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-username {
+    margin-right: 10px;
+    color: white;
+}
+
+.navbar-account-link {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    /* font-weight: 600; */
+    /* width: 80px; */
+    margin-right: 10px;
+    background-color: white;
+    color: #005045 !important;
+    border: none;
+    border-radius: 4px; /* Slightly rounded borders */
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    height: 35px;
+}
+
+
+
+
+.dash-btn{
+    width: 100px;
+}
+.navbar-account-link:hover{
+    text-decoration: none;
+}
+.navbar-logout-button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    /* font-weight: 600; */
+    margin-right: 10px;
+    background-color: transparent;
+    color: white;
+    border:  1px solid white;
+    border-radius: 4px; /* Slightly rounded borders */
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+}
+
+.navbar-login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    /* font-weight: 600; */
+    background-color: white;
+    color: #005045;
+    border:  none;
+    border-radius: 4px; /* Slightly rounded borders */
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    letter-spacing: 1px;
+}
+.navbar-login-button:hover{
+    text-decoration: none;
+}
+/* Hide on smaller screens (example for a typical mobile breakpoint) */
+@media (max-width: 996px) {
+    .navbar__items--right .navbar-auth-section { 
+        display: none;
+    }
+}
+
+.navbar-book-link {
+    font-size: 15px;
+    font-weight: 600;
+    width: 80px; /* Consistent width */
+    margin-right: 10px;
+    background-color: white;
+    color: #005045;
+    border: none;
+    border-radius: 4px; /* Slightly rounded borders */
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    height: 35px; /* Consistent height */
+}
+

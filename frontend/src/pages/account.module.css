@@ -1,0 +1,83 @@
+.accountInfo {
+  background-color: #005045;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-lw);
+  width: 100%;
+  max-width: 600px;
+  margin: 10px; /* Applied 20px margin on all sides */
+}
+
+.accountHeading {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.infoRow {
+  display: block; /* Changed to block to stack infoLabel and valueButtonRow */
+  margin-bottom: 1.5rem;
+}
+
+.infoLabel {
+  font-weight: bold;
+  color: #f5f5f5;
+  margin-bottom: 0.5rem; /* Space between label and value/button row */
+}
+
+.valueButtonRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.infoValue {
+  flex-grow: 1; /* Allow infoValue to take available space */
+  word-break: break-all;
+  background-color: white;
+  color: #005045;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-right: 1rem; /* Space between value and button */
+}
+
+.editButton {
+  background-color: white;
+  color: #005045;
+  border: 1px solid #005045;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  flex-shrink: 0; /* Prevent button from shrinking */
+  width: 120px; /* Fixed width for consistent button size */
+}
+
+.editButton:hover {
+  background-color: #e0e0e0;
+  color: #005045;
+}
+
+@media (max-width: 768px) {
+  .accountInfo {
+    margin: 10px; /* Ensure 20px margin on small screens */
+    width: auto; /* Allow width to adjust with margin */
+  }
+
+  .valueButtonRow {
+    flex-direction: column; /* Stack value and button on small screens */
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .infoValue {
+    width: auto; /* Auto width on small screens */
+    margin-right: 0; /* Remove right margin when stacked */
+  }
+
+  .editButton {
+    width: 100%; /* Full width on small screens */
+  }
+}
