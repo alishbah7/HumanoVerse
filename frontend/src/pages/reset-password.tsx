@@ -10,7 +10,7 @@ function ResetPassword() {
     useState('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [token, setToken] = useState<string | null>(null);
+  const [token, setToken] = useState<string | undefined>(undefined);
   const history = useHistory();
   const location = useLocation();
 
@@ -30,12 +30,16 @@ function ResetPassword() {
       setError('Passwords do not match');
       return;
     }
+    if (!token) {
+      setError('No reset token found. Please request a new password reset link.');
+      return;
+    }
     setError(null);
     setSuccess(null);
     try {
       const { error: authError } = await authClient.resetPassword({
         token,
-        password,
+        newPassword: password,
       });
 
       if (authError) {
