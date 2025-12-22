@@ -81,7 +81,7 @@ function Login() {
           </form>
           <div className="text--center margin-top--md">
             <p>Don't have an account? <a href="/signup">Sign Up</a></p>
-            <p><a href="/forgot-password">Forgot Password?</a></p>
+            {/* <p><a href="/forgot-password">Forgot Password?</a></p> */}
           </div>
         </div>
       </div>
