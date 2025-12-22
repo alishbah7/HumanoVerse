@@ -32,9 +32,13 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: [
+      "https://humanoverse.vercel.app",
+      "http://localhost:3000"
+    ],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
   })

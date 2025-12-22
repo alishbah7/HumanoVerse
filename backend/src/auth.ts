@@ -1,5 +1,6 @@
 import { betterAuth, User, Session } from 'better-auth';
 import Database from 'better-sqlite3';
+import nodemailer from 'nodemailer';
 
 interface SignUpBody {
   email: string;
@@ -13,14 +14,15 @@ const db = new Database('./db.sqlite');
 export const auth = betterAuth({
   database: db,
 
-  trustedOrigins: ['http://localhost:3000', 'humanoverse.vercel.app', 'https://humanoverse.vercel.app'],
+  trustedOrigins: ['http://localhost:3000', 'https://humanoverse.vercel.app', 'humanoverse.vercel.app'],
 
   server: {
-    origin: ['http://localhost:3000', 'humanoverse.vercel.app', 'https://humanoverse.vercel.app'],
+    origin: ['http://localhost:3000', 'https://humanoverse.vercel.app', 'humanoverse.vercel.app'],
     secret: process.env.BETTER_AUTH_SECRET!,
     cookie: {
       sameSite: 'none',
       secure: true,
+      path: '/'
     },
   },
 
@@ -37,8 +39,22 @@ export const auth = betterAuth({
     sendResetPassword: async (
       { email, link }: { email: string; link: string }
     ) => {
-      console.log('Reset password email to:', email);
-      console.log('Reset password link:', link);
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: 'Password Reset',
+        text: `Click here to reset your password: ${link}`,
+      };
+
+      await transporter.sendMail(mailOptions);
     },
   },
 
@@ -52,6 +68,7 @@ export const auth = betterAuth({
   
   emailAndPassword: {
     enabled: true,
+    passwordReset: true,
   },
 
   /**
@@ -66,42 +83,6 @@ export const auth = betterAuth({
     return user;
   },
 
-  // callbacks: {
-  //   session: async (
-  //     {
-  //       session,
-  //       user,
-  //     }: {
-  //       session: Session;
-  //       user: User;
-  //     }
-  //   ) => {
-  //     const row = db
-  //       .prepare('SELECT role FROM user WHERE id = ?')
-  //       .get(user.id) as { role?: string } | undefined;
-
-  //     // ✅ Attach role to USER (not session)
-  //     (user as any).role = row?.role ?? 'user';
-
-  //     return { session, user };
-  //   },
-  // },
-
-
-
-
-  /**
-   * Attach role to session on sign-in
-   */
-  // onSignIn: async ({ user }: { user: User }) => {
-  //   const row = db
-  //     .prepare('SELECT role FROM user WHERE id = ?')
-  //     .get(user.id) as { role?: string } | undefined;
-
-  //   (user as any).role = row?.role ?? 'user';
-
-  //   return user;
-  // },
   onSignIn: async ({ user }: { user: User }) => {
     const row = db
       .prepare('SELECT role FROM user WHERE id = ?')

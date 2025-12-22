@@ -24,7 +24,7 @@ function Signup() {
       if (result.error) {
         setError(result.error.message || 'Signup failed');
       } else {
-        history.push('/login'); // Redirect to login page after successful signup
+        history.push('/'); // Redirect to login page after successful signup
       }
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred.');
