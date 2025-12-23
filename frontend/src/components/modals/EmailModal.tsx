@@ -14,7 +14,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
       <div className={styles.emailModalContent}>
         <h2 className={styles.emailModalTitle}>Update Email</h2>
         <p className={styles.emailModalText}>
-          Contact Us At <strong>humanoverse.verify@gmail.com</strong> To Update Email!
+          To Update Email Contact Us At <strong>humanoverse.verify@gmail.com</strong>
         </p>
         <button onClick={onClose} className={styles.emailModalButton}>
           Close
