@@ -29,24 +29,26 @@ export const updateName = async (name: string) => {
 };
 
 export const updateEmail = async (password: string, newEmail: string) => {
-    const session = await authClient.getSession();
-    if (!session) throw new Error('Not authenticated');
+  const session = await authClient.getSession();
+  if (!session) throw new Error('Not authenticated');
 
-    const res = await fetch('https://humanoverse.vercel.app/api/user/email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include', // ← important to send cookies
-      body: JSON.stringify({ password, newEmail }),
-    });
+  const res = await fetch('https://humanoverse.vercel.app/api/user/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify({ password, newEmail }), // Matches the keys used in backend destructuring
+  });
 
-    if (!res.ok) {
-      const error = await res.json();
-      throw new Error(error.message);
-    }
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.message || 'Email update failed');
+  }
 
-    return res.json();
+  return res.json();
 };
-
+  
 export const updatePassword = async (currentPassword: string, newPassword: string) => {
     const session = await authClient.getSession();
     if (!session) throw new Error('Not authenticated');
