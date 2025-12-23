@@ -90,7 +90,7 @@ function Account() {
             <div className={styles.infoLabel}>Email</div>
             <div className={styles.valueButtonRow}>
               <div className={styles.infoValue}>{user.email}</div>
-              {/* <button onClick={() => setIsEmailModalOpen(true)} className={styles.editButton}>Update</button> */}
+              <button onClick={() => setIsEmailModalOpen(true)} className={styles.editButton}>Update</button>
             </div>
           </div>
           <div className={styles.infoRow}>
@@ -111,7 +111,7 @@ function Account() {
       <EmailModal
         isOpen={isEmailModalOpen}
         onClose={() => setIsEmailModalOpen(false)}
-        onSave={handleEmailSave}
+        // onSave={handleEmailSave}
       />
       <PasswordModal
         isOpen={isPasswordModalOpen}
