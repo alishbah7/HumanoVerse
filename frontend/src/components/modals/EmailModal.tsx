@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './emailModal.module.css';
+import styles from './modal.module.css';
 
 interface EmailModalProps {
   isOpen: boolean;
