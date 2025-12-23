@@ -87,23 +87,23 @@ const config: Config = {
           <h2 class="footer-title">𝐻𝓊𝓂𝒶𝓃𝑜𝒱𝑒𝓇𝓈𝑒</h2>
 
           <div class="footer-social">
-            <a class="social-icon" href="#" aria-label="Instagram">
+            <a class="social-icon" href="https://www.instagram.com/innolyze_/" aria-label="Instagram">
               <i class="bx bxl-instagram"></i>
             </a>
-            <a class="social-icon" href="#" aria-label="Facebook">
+            <a class="social-icon" href="https://www.facebook.com/people/Innolyze/61579966714044/" aria-label="Facebook">
               <i class="bx bxl-facebook"></i>
             </a>
-            <a class="social-icon" href="#" aria-label="LinkedIn">
+            <a class="social-icon" href="https://www.linkedin.com/in/alishbah-m-kamran-598318316/" aria-label="LinkedIn">
               <i class="bx bxl-linkedin"></i>
             </a>
-            <a class="social-icon" href="#" aria-label="X (formerly Twitter)">
+            <a class="social-icon" href="https://x.com/_alishbah04_" aria-label="X (formerly Twitter)">
               <i class="bx bxl-twitter"></i>
             </a>
           </div>
 
           <div class="footer-links">
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact Us</a>
+            <a href="www.innolyze.com">Innolyze</a>
+            <a href="/signup">Sign Up</a>
             <a href="/docs">Read Book</a>
           </div>
         </div>

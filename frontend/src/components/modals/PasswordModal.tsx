@@ -43,7 +43,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpen, onClose, onSave }
           required
         />
         <div className={styles.buttonGroup}>
-          {/* <Link to="/forgot-password" className={styles.forgotPassword}>Forgot Password?</Link> */}
+          <Link to="/forgot-password" className={styles.forgotPassword}>Forgot Password?</Link>
           <button onClick={onClose} className={styles.cancelButton}>Cancel</button>
           <button onClick={handleSave} className={styles.modalButton}>Save</button>
         </div>
