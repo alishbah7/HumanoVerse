@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
 
     try {
       const res = await fetch(
-        'https://humanoverse.vercel.app/api/custom/forgot-password', // Updated path
+        'https://humanoverse.vercel.app/api/auth/forgot-password', // Updated path
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
