@@ -104,7 +104,7 @@ const config: Config = {
           <div class="footer-links">
             <a href="https://www.innolyze.com/">Innolyze</a>
             <a href="/signup">Sign Up</a>
-            <a href="/docs">Read Book</a>
+            <a href="/docs/introduction">Read Book</a>
           </div>
         </div>
       `,
