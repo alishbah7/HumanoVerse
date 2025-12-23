@@ -17,7 +17,7 @@ export default function ResetPassword() {
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/auth/reset-password', {
+      const res = await fetch('/api/user/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token, newPassword }),

@@ -6,22 +6,25 @@ export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await fetch('/api/auth/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      setMessage('Check your email for the reset link.');
-    } catch (err) {
-      setMessage('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
+  // src/pages/forgot-password.tsx
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('/api/user/forgot-password', { // Changed from /api/auth/...
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    
+    if (res.ok) {
+      setMessage('Check your email for a reset link!');
+    } else {
+      setMessage('Error: ' + res.statusText);
     }
-  };
+  } catch (err) {
+    setMessage('Something went wrong.');
+  }
+};
 
   return (
     <Layout title="Forgot Password">
