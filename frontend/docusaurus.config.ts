@@ -102,7 +102,7 @@ const config: Config = {
           </div>
 
           <div class="footer-links">
-            <a href="www.innolyze.com">Innolyze</a>
+            <a href="https://www.innolyze.com/">Innolyze</a>
             <a href="/signup">Sign Up</a>
             <a href="/docs">Read Book</a>
           </div>
