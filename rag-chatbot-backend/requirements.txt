@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+groq
+google-genai
+qdrant-client==1.15.0
+python-dotenv

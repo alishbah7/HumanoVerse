@@ -18,7 +18,8 @@
     "express": "^5.2.1",
     "google-translate-api-x": "^10.7.2",
     "hono": "^4.11.1",
-    "nodemailer": "^7.0.12"
+    "nodemailer": "^7.0.12",
+    "resend": "^6.6.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",

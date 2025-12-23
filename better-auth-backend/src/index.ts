@@ -32,31 +32,32 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 
 
 const app = express();
+app.use(express.json());
 app.set('trust proxy', 1);
+app.use('/api/auth', toNodeHandler(auth));
+
 app.use(
   cors({
     origin: [
-      "https://humanoverse.vercel.app",
-      "http://localhost:3000"
+      "http://localhost:3000",
     ],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
-app.use(express.json());
+
 
 const db = new Database('./db.sqlite');
 
-app.use('/api/auth', toNodeHandler(auth));
 import { translate } from 'google-translate-api-x';
 
 app.post('/api/translate', async (req, res) => {
   const { text, targetLang } = req.body;
-
+  
   if (!text || !targetLang) {
     return res.status(400).json({ error: 'Missing required parameters' });
   }
-
+  
   try {
     const result = await translate(text, { to: targetLang });
     res.json({ translatedText: (result as any).text });
@@ -73,7 +74,7 @@ app.get('/api/me', async (req, res) => {
   if (!result) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
-
+  
   const { user } = result;
 
   // 🔥 FETCH ROLE FROM DB (source of truth)
@@ -89,7 +90,6 @@ app.get('/api/me', async (req, res) => {
   });
 });
 
-
 app.get('/api/user', (req, res) => {
   const user = (req as any).user;
   if (!user) {
@@ -103,7 +103,7 @@ app.patch('/api/user/name', requireAuth, (req, res) => {
   if (!user) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
-
+  
   const { name } = req.body;
   if (!name) {
     return res.status(400).json({ message: 'Name is required' });
@@ -113,7 +113,7 @@ app.patch('/api/user/name', requireAuth, (req, res) => {
     db.prepare(
       'UPDATE user SET name = ?, updatedAt = CURRENT_TIMESTAMP WHERE id = ?'
     ).run(name, user.id);
-
+    
     res.json({ message: 'Name updated successfully' });
   } catch (error) {
     console.error('Error updating name:', error);
@@ -141,34 +141,35 @@ app.post('/api/user/password', requireAuth, async (req, res) => {
   }
 });
 
-app.post('/api/user/email', requireAuth, async (req, res) => {
-  const { newEmail } = req.body;
+// app.post('/api/user/email', requireAuth, async (req, res) => {
+//   const { newEmail } = req.body;
 
-  if (!newEmail) {
-    return res.status(400).json({ message: 'Email is required' });
-  }
+//   if (!newEmail) {
+//     return res.status(400).json({
+//       message: 'New email is required',
+//     });
+//   }
 
-  try {
-    // Get the current user's ID from the session
-    const user = (req as any).user;
-    if (!user) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
-    // Update the email in the database directly
-    db.prepare(
-      'UPDATE user SET email = ?, updatedAt = CURRENT_TIMESTAMP WHERE id = ?'
-    ).run(newEmail, user.id);
-    
-    res.json({ message: 'Email updated successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({ message: 'Email update failed' });
-  }
-});
+//   try {
+//     await auth.api.changeEmail({
+//       headers: req.headers as HeadersInit,
+//       body: {
+//         newEmail,
+//         callbackURL: 'https://humanoverse.vercel.app/account',
+//       },
+//     });
 
+//     return res.json({
+//       message: 'Verification email sent to new address',
+//     });
+//   } catch (err: any) {
+//     console.error('Change email error:', err);
 
-
-
+//     return res.status(400).json({
+//       message: err?.message || 'Email update failed',
+//     });
+//   }
+// });
 
 app.get('/api/admin/users', requireAuth, async (req, res) => {
   const user = (req as any).user;
@@ -263,6 +264,50 @@ app.put('/api/admin/users/:id', requireAuth, async (req, res) => {
     res.status(500).json({ message: 'Internal server error.' });
   }
 });
+
+
+// In index.ts
+// index.ts
+// index.ts
+
+// 1. Forgot Password
+app.post('/api/user/forgot-password', async (req, res) => {
+  const { email } = req.body;
+  try {
+    await auth.api.requestPasswordReset({ 
+      body: {
+        email,
+        redirectTo: 'https://humanoverse.vercel.app/reset-password',
+      },
+    });
+    res.json({ message: 'Reset link sent' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to request reset' });
+  }
+});
+
+// 2. Reset Password (CHANGED TO /api/user)
+app.post('/api/user/reset-password', async (req, res) => {
+  const { token, newPassword } = req.body;
+
+  if (!token || !newPassword) {
+    return res.status(400).json({ message: 'Missing token or password' });
+  }
+
+  try {
+    await auth.api.resetPassword({
+      body: {
+        token,
+        newPassword,
+      },
+    });
+    res.json({ message: 'Password reset successful' });
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(400).json({ message: 'Invalid or expired token' });
+  }
+});
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
