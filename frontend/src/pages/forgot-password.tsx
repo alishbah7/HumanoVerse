@@ -1,48 +1,58 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
+import '../css/auth.css';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-  // src/pages/forgot-password.tsx
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const res = await fetch('/api/user/forgot-password', { // Changed from /api/auth/...
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    });
-    
-    if (res.ok) {
-      setMessage('Check your email for a reset link!');
-    } else {
-      setMessage('Error: ' + res.statusText);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('/api/user/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      
+      if (res.ok) {
+        setMessage('Check your email for a reset link!');
+        setSubmitted(true);
+      } else {
+        setMessage('Error: ' + res.statusText);
+      }
+    } catch (err) {
+      setMessage('Something went wrong.');
     }
-  } catch (err) {
-    setMessage('Something went wrong.');
-  }
-};
+    setLoading(false);
+  };
 
   return (
     <Layout title="Forgot Password">
-      <div className="container margin-vert--xl" style={{ maxWidth: '500px' }}>
-        <div className="card">
-          <div className="card__header"><h3>Forgot Password</h3></div>
-          <div className="card__body">
+      <div className="auth-container">
+        <div className="auth-form">
+          <h1>Forgot Password</h1>
+          {submitted ? (
+            <p>{message}</p>
+          ) : (
             <form onSubmit={handleSubmit}>
-              <div className="margin-bottom--md">
-                <label>Email Address</label>
-                <input className="button--block" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} style={{ padding: '8px', width: '100%', border: '1px solid #ccc' }} />
-              </div>
-              <button className="button button--primary button--block" type="submit" disabled={loading}>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              {message && <p className="alert">{message}</p>}
+              <button className="button" type="submit" disabled={loading}>
                 {loading ? 'Sending...' : 'Send Reset Link'}
               </button>
             </form>
-            {message && <p className="margin-top--md">{message}</p>}
-          </div>
+          )}
         </div>
       </div>
     </Layout>
