@@ -35,7 +35,7 @@ export default function ForgotPasswordPage() {
     }
   };
 
-  console.log("RUNNING ON:", process.env.RAILWAY_ENVIRONMENT ? "RAILWAY" : "VERCEL");
+  // console.log("RUNNING ON:", process.env.RAILWAY_ENVIRONMENT ? "RAILWAY" : "VERCEL");
   return (
     <div style={{ maxWidth: 420, margin: '80px auto' }}>
       <h1>Forgot Password</h1>
