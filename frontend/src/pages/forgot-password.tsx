@@ -10,18 +10,29 @@ export default function ForgotPasswordPage() {
     setLoading(true);
     setMessage('');
 
-    const res = await fetch(
-      'https://humanoverse.vercel.app/api/auth/forgot-password',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      }
-    );
+    try {
+      const res = await fetch(
+        'https://humanoverse.vercel.app/api/custom/forgot-password', // Updated path
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        }
+      );
 
-    const data = await res.json();
-    setMessage(data.message);
-    setLoading(false);
+      // Safety check for non-JSON responses
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        const data = await res.json();
+        setMessage(data.message);
+      } else {
+        setMessage("An unexpected error occurred on the server.");
+      }
+    } catch (err) {
+      setMessage("Failed to connect to the server.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
