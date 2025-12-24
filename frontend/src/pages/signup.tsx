@@ -65,6 +65,7 @@ function Signup() {
               <button type="submit" className="button">
                 Sign Up
               </button>
+              <p>Already have an account? <a href="/login">Log In</a></p>
             </form>
           </div>
         </div>
