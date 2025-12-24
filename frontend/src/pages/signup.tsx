@@ -62,7 +62,7 @@ function Signup() {
                 required
               />
               {error && <div className="alert">{error}</div>}
-              <button type="submit" className="button">
+              <button type="submit" className="button singupbtn">
                 Sign Up
               </button>
               <p>Already have an account? <a href="/login">Log In</a></p>
